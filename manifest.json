@@ -1,10 +1,10 @@
 {
   "name": "ple-choo",
   "short_name": "ple-choo",
-  "description": "A very cute app",
+  "description": "ple tracker",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffc0cb",
+  "background_color": "#e5e5e5",
   "theme_color": "#ffc0cb",
   "icons": [{
     "src": "/assets/icon.png",
