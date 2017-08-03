@@ -17,6 +17,8 @@ var ranges = {
     end: 16.9
   }
 }
+
+var checkboxItems = ['rapamune', 'sildenafil', 'vomit', 'grumpy', 'rash', 'swelling', 'sick-cold', 'sick-stomach', 'headache']
 module.exports = view
 
 function view (state, emit) {
@@ -39,31 +41,42 @@ function view (state, emit) {
         <h3 class="f1 pa3-m pa4-ns">PLE Stats</h3>
       </header>
       <section>
-        <p>
-          <label>Weight</label>
-          <input type="number" placeholder=${String(lastWeight)} value=${lastWeight} />
-        </p>
-        <p>
-          <label>Arm Size</label>
-          <select>
-            ${armRange.map(v => html`<option value=String(${v})>${v}</option>`)}
-          </select>
-        </p>
-        <p>
-          <label>Abdomen Size</label>
-          <select>
-            ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)}
-          </select>
-        </p>
-        <p>
-          <label>Foot Size</label>
-          <select>
-            ${footRange.map(v => html`<option value=String(${v})>${v}</option>`)}
-          </select>
-        </p>
+        <form>
+          <p>
+            <label>Weight</label>
+            <input type="number" placeholder=${String(lastWeight)} value=${lastWeight} />
+          </p>
+          <p>
+            <label>Arm Size</label>
+            <select>
+              ${armRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+            </select>
+          </p>
+          <p>
+            <label>Abdomen Size</label>
+            <select>
+              ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+            </select>
+          </p>
+          <p>
+            <label>Foot Size</label>
+            <select>
+              ${footRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+            </select>
+          </p>
+          <fieldset>
+            <legend>Options</legend>
+            ${checkboxItems.map(item =>
+              html`
+              <div>
+                <input id=${item} type="checkbox" name="options" value=${item}/>
+                <label for=${item}>${item}</label>
+              </div>`)
+            }
+          </fieldset>
+          <textarea></textarea>
+        </form>
       </section>
-      <footer>
-      </footer>
     </body>
   `
 }
