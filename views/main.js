@@ -5,16 +5,16 @@ var ranges = {
     end: 36.6
   },
   arm: {
-    start: 15.2,
-    end: 20.9
+    start: 16.25,
+    end: 19.0
   },
   abdomen: {
-    start: 49.5,
-    end: 54.9
+    start: 48.50,
+    end: 54.0
   },
   foot: {
-    start: 15.2,
-    end: 16.9
+    start: 14,
+    end: 15.5
   }
 }
 
@@ -88,18 +88,18 @@ function foo () {
 
 function makeRange (start, end) {
   var res = []
-  var split = String(start).split('.').map(v => Number(v))
+  var split = start.toFixed(2).split('.').map(v => Number(v))
   var tens = split[0]
   var decimal = split[1] || 0
 
   while (tens + (decimal/100) < end) {
-    res.push(tens + (decimal/100))
-    if (decimal + 1 === 10) {
+    if (decimal + 25 >= 100) {
       decimal = 0
       tens++
     } else {
-      decimal++
+      decimal+=25
     }
+    res.push(tens + (decimal/100))
   }
   return res
 }
