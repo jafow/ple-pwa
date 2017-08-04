@@ -18,7 +18,7 @@ var ranges = {
   }
 }
 
-var checkboxItems = ['rapamune', 'sildenafil', 'vomit', 'grumpy', 'rash', 'swelling', 'sick-cold', 'sick-stomach', 'headache']
+var checkboxItems = ['rutin', 'rapamune', 'sildenafil', 'vomit', 'grumpy', 'rash', 'swelling:face', 'sick:cold', 'sick:stomach', 'wrapping']
 module.exports = view
 
 function view (state, emit) {
@@ -74,7 +74,8 @@ function view (state, emit) {
               </div>`)
             }
           </fieldset>
-          <textarea></textarea>
+          <textarea id="notes"></textarea>
+          <label for="notes">Notes</label>
         </form>
       </section>
     </body>
