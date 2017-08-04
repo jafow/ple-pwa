@@ -34,14 +34,15 @@ function view (state, emit) {
       <header>
         <nav>
         <ul class="nav-menu">
-          <li><a href="/update">Update</a></li>
+          <li><a href="/update">Edit</a></li>
           <li><a href="/delete">Delete</a></li>
+          <li><a href="/history">History</a></li>
         </ul> 
         </nav>
         <h3 class="f1 pa3-m pa4-ns">PLE Stats</h3>
       </header>
       <section>
-        <form>
+        <form action="/posted" method="post">
           <p>
             <label>Weight</label>
             <input type="number" placeholder=${String(lastWeight)} value=${lastWeight} />
@@ -55,10 +56,7 @@ function view (state, emit) {
           <p>
             <label>Abdomen Size</label>
             <select>
-              ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)}
-            </select>
-          </p>
-          <p>
+              ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)} </select> </p> <p>
             <label>Foot Size</label>
             <select>
               ${footRange.map(v => html`<option value=String(${v})>${v}</option>`)}
@@ -74,8 +72,11 @@ function view (state, emit) {
               </div>`)
             }
           </fieldset>
-          <textarea id="notes"></textarea>
-          <label for="notes">Notes</label>
+          <div class="pa3">
+            <label class="f6 b db mb2" for="notes">Notes</label>
+            <textarea class="bl border-box hover-black w-100 measure pa2 br2 mb2" id="notes" autocomplete></textarea>
+          </div>
+          <button type="submit">Save</button>
         </form>
       </section>
     </body>
