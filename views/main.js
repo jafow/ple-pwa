@@ -56,7 +56,10 @@ function view (state, emit) {
           <p>
             <label>Abdomen Size</label>
             <select>
-              ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)} </select> </p> <p>
+              ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+            </select>
+          </p>
+          <p>
             <label>Foot Size</label>
             <select>
               ${footRange.map(v => html`<option value=String(${v})>${v}</option>`)}
