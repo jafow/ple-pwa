@@ -59,25 +59,29 @@ function view (state, emit) {
       <section>
         <form action="/posted" method="post">
           <p>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+          </p>
+          <p>
             <label>Weight</label>
-            <input type="number" placeholder=${String(lastWeight)} value=${lastWeight} />
+            <input type="number" name="weight" step="0.2" placeholder=${String(lastWeight)} value=${lastWeight} />
           </p>
           <p>
             <label>Arm Size</label>
             <select>
-              ${armRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+              ${armRange.map(v => html`<option name="arm" value=String(${v})>${v}</option>`)}
             </select>
           </p>
           <p>
             <label>Abdomen Size</label>
             <select>
-              ${abRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+              ${abRange.map(v => html`<option name="abdomen" value=String(${v})>${v}</option>`)}
             </select>
           </p>
           <p>
             <label>Foot Size</label>
             <select>
-              ${footRange.map(v => html`<option value=String(${v})>${v}</option>`)}
+              ${footRange.map(v => html`<option name="foot" value=String(${v})>${v}</option>`)}
             </select>
           </p>
           <fieldset>
@@ -92,9 +96,9 @@ function view (state, emit) {
           </fieldset>
           <div class="pa3">
             <label class="f6 b db mb2" for="notes">Notes</label>
-            <textarea class="bl border-box hover-black w-100 measure pa2 br2 mb2" id="notes" autocomplete></textarea>
+            <textarea class="bl border-box hover-black w-100 measure pa2 br2 mb2" name="notes" id="notes" autocomplete></textarea>
           </div>
-          <button type="submit">Save</button>
+          <input type="submit" value="Save" />
         </form>
       </section>
     </body>
