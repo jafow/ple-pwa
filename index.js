@@ -1,6 +1,10 @@
 var css = require('sheetify')
 var choo = require('choo')
+var express = require('express')
+var server = express()
+var bodyParser = require('body-parser')
 
+server.use(bodyParser.urlencoded({extended: true}))
 css('tachyons')
 css('./assets/styles/header-bkground.css')
 
