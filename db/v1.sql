@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS
         siledenafil     INTEGER     default 0,
         vomit           INTEGER     default 0,
         grumpy          INTEGER     default 0,
-        swelling:face   INTEGER     default 0,
-        sick:cold       INTEGER     default 0,
-        sick:stomach    INTEGER     default 0,
+        swelling_face   INTEGER     default 0,
+        sick_cold       INTEGER     default 0,
+        sick_stomach    INTEGER     default 0,
         wrapping        INTEGER     default 0
     );
 
