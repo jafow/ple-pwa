@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS
     measures
     (
-        id           VARCHAR     PRIMARY KEY NOT NULL,
+        id           INTEGER     PRIMARY KEY NOT NULL,
         date         INTEGER     default (datetime('now')),
         weight       REAL        default 0,
         arm          REAL        default 0,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS
     options
     (
-        options_id      VARCHAR     PRIMARY KEY NOT NULL,
+        options_id      INTEGER     PRIMARY KEY NOT NULL,
         rutin           INTEGER     default 0,
         rapamune        INTEGER     default 0,
         siledenafil     INTEGER     default 0,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE if NOT EXISTS
     notes
     (
-        notes_id        VARCHAR     PRIMARY KEY NOT NULL,
+        notes_id        INTEGER,     
         notes           TEXT
     );
 
