@@ -13,12 +13,13 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS
     options
     (
-        options_id      INTEGER     PRIMARY KEY NOT NULL,
+        options_id      INTEGER,
         rutin           INTEGER     default 0,
         rapamune        INTEGER     default 0,
-        siledenafil     INTEGER     default 0,
+        sildenafil      INTEGER     default 0,
         vomit           INTEGER     default 0,
         grumpy          INTEGER     default 0,
+        rash            INTEGER     default 0,
         swelling_face   INTEGER     default 0,
         sick_cold       INTEGER     default 0,
         sick_stomach    INTEGER     default 0,
@@ -28,7 +29,7 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE if NOT EXISTS
     notes
     (
-        notes_id        INTEGER,     
+        notes_id        INTEGER,
         notes           TEXT
     );
 
