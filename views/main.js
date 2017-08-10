@@ -35,13 +35,13 @@ function view (state, emit) {
       <style>
         ${
             html`header {
-            /* height: 120px; */
+            height: 120px;
             width: 100%;
             background-color: #DFDBE5;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23054c18' fill-opacity='0.38'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
           }
           body {
-            color: rose;
+            color: #111;
             font-family: 'avenir next', avenir, sans-serif;
           }`
         }
@@ -60,7 +60,7 @@ function view (state, emit) {
         <form action="/posted" method="post">
           <p>
             <label for="date">Date</label>
-            <input type="date" id="date" name="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+            <input type="date" id="date" name="date" placeholder="yyyy-mm-dd" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
           </p>
           <p>
             <label>Weight</label>
@@ -103,10 +103,6 @@ function view (state, emit) {
       </section>
     </body>
   `
-}
-
-function foo () {
-  console.log('clicked')
 }
 
 function makeRange (start, end) {
