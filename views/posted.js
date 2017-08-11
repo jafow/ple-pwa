@@ -12,7 +12,7 @@ function posted (state, emit) {
     <a href="/history">History</a>
     <section>
       <ul>
-        <li>Date: ${date}<li>
+        <li>Date: ${date}</li>
         <li>Weight: ${weight}</li>
         <li>Arm Size: ${arm}</li>
         <li>Abdomen Size: ${abdomen}</li>
