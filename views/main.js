@@ -68,20 +68,20 @@ function view (state, emit) {
           </p>
           <p>
             <label>Arm Size</label>
-            <select>
-              ${armRange.map(v => html`<option name="arm" value=String(${v})>${v}</option>`)}
+            <select name="arm">
+              ${armRange.map(v => html`<option value=${v}>${v}</option>`)}
             </select>
           </p>
           <p>
             <label>Abdomen Size</label>
-            <select>
-              ${abRange.map(v => html`<option name="abdomen" value=String(${v})>${v}</option>`)}
+            <select name="abdomen">
+              ${abRange.map(v => html`<option value=${v}>${v}</option>`)}
             </select>
           </p>
           <p>
             <label>Foot Size</label>
-            <select>
-              ${footRange.map(v => html`<option name="foot" value=String(${v})>${v}</option>`)}
+            <select name="foot">
+              ${footRange.map(v => html`<option value=${v}>${v}</option>`)}
             </select>
           </p>
           <fieldset>
