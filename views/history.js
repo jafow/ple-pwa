@@ -5,12 +5,19 @@ module.exports = history
 function history (state, emit) {
   console.log('stsate history ', state.history)
 
+  const dateHelper = (ds) => {
+    let d = new Date(ds).toISOString()
+    return d.substr(0, d.indexOf('T'))
+  }
+
   let entries = state.history.map(entry =>
     html`<div>
-      ${Date.parse(entry.date)}
+      ${dateHelper(entry.date)}
       <ul>
-        <li>${entry.weight || ''}</li>
-        <li>${entry.notes || '' }</li>
+        <li>Weight: ${entry.weight || ''}</li>
+        <li>Arm ${entry.arm || ''}</li>
+        <li>Abdomen${entry.abdomen || ''}</li>
+        <li>Foot ${entry.foot || '' }</li>
       <ul>
     </div>`)
 
@@ -23,7 +30,7 @@ function history (state, emit) {
     <section>
       <h2>${state.success} hello </h2>
     <div>
-      ${ entries }
+      ${entries}
     </div>
     </section>
   </body>
