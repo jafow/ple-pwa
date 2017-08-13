@@ -3,22 +3,17 @@ var html = require('choo/html')
 module.exports = history
 
 function history (state, emit) {
-  console.log('stsate history ', state.history)
-
-  const dateHelper = (ds) => {
-    let d = new Date(ds).toISOString()
-    return d.substr(0, d.indexOf('T'))
-  }
-
   let entries = state.history.map(entry =>
     html`<div>
-      ${dateHelper(entry.date)}
+      ${entry.date}
       <ul>
-        <li>Weight: ${entry.weight || ''}</li>
-        <li>Arm ${entry.arm || ''}</li>
-        <li>Abdomen${entry.abdomen || ''}</li>
-        <li>Foot ${entry.foot || '' }</li>
+        <li>Weight: ${entry.weight}</li>
+        <li>Arm ${entry.arm}</li>
+        <li>Abdomen${entry.abdomen}</li>
+        <li>Foot ${entry.foot}</li>
       <ul>
+      <p>Notes: ${entry.notes}</p>
+      <p>${entry.options ? 'other: ' + entry.options.join(',') : ''}</p>
     </div>`)
 
   return html`
