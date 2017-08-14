@@ -1,30 +1,20 @@
-const css = require('sheetify')
-const choo = require('choo')
 const express = require('express')
 const server = express()
 const bodyParser = require('body-parser')
 const DbController = require('./lib/setup-db')
 const dbCtrl = DbController('v1.sql')
 const stateCtrl = require('./lib/state-ctrl')
+const app = require('./app.js')
+const path = require('path')
 
 server.use(bodyParser.urlencoded({extended: true}))
-css('tachyons')
-css('./assets/styles/header-bkground.css')
 
-const app = choo()
-if (process.env.NODE_ENV !== 'production') {
-  app.use(require('choo-devtools')())
-  app.use(require('choo-log')())
-}
-app.use(require('choo-service-worker')())
-app.route('/', require('./views/main'))
-app.route('/posted', require('./views/posted'))
-app.route('/history', require('./views/history'))
-
-/* server 
- */
 server.get('/', (req, res) => {
-    res.send(app.toString('/', {}))
+  res.send(app.toString('/', {}))
+})
+
+server.get('/dist/bundle.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/bundle.js'))
 })
 
 server.post('/posted', dbCtrl.run, stateCtrl.format, (req,  res) => {
@@ -37,5 +27,3 @@ server.get('/history', dbCtrl.get, stateCtrl.hist, (req, res) => {
 })
 
 server.listen(3000)
-
-module.exports = app
