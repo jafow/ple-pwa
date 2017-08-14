@@ -1,6 +1,4 @@
 var html = require('choo/html')
-var css = require('sheetify')
-var headerBkground = css('./../assets/styles/header-bkground.css')
 
 var ranges = {
   weight: {
@@ -12,12 +10,12 @@ var ranges = {
     end: 19.0
   },
   abdomen: {
-    start: 48.50,
+    start: 49.50,
     end: 54.0
   },
   foot: {
-    start: 14,
-    end: 15.5
+    start: 14.5,
+    end: 16.5
   }
 }
 
@@ -25,27 +23,12 @@ var checkboxItems = ['rutin', 'rapamune', 'sildenafil', 'vomit', 'grumpy', 'rash
 module.exports = view
 
 function view (state, emit) {
-  // if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
   var armRange = makeRange(ranges.arm.start, ranges.arm.end)
   var abRange = makeRange(ranges.abdomen.start, ranges.abdomen.end)
   var footRange = makeRange(ranges.foot.start, ranges.foot.end)
   var lastWeight = getLastWeight()
   return html`
     <body>
-      <style>
-        ${
-            html`header {
-            height: 120px;
-            width: 100%;
-            background-color: #DFDBE5;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23054c18' fill-opacity='0.38'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-          }
-          body {
-            color: #111;
-            font-family: 'avenir next', avenir, sans-serif;
-          }`
-        }
-      </style>
       <header>
         <nav>
         <ul class="nav-menu">
@@ -101,6 +84,7 @@ function view (state, emit) {
           <input type="submit" value="Save" />
         </form>
       </section>
+    <script src="dist/bundle.js" type="application/javascript"></script>
     </body>
   `
 }
