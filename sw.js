@@ -1,33 +1,39 @@
-/* global self */
+// /* global self */
 
-var VERSION = String(Date.now())
-var URLS = [
-  '/',
-  '/bundle.css',
-  '/bundle.js',
-  'assets/icon.png'
-]
+ var VERSION = String(Date.now())
+ var URLS = [
+   '/',
+   'dist/bundle.css',
+   'dist/bundle.js',
+   'dist/assets/icon.png'
+ ]
 
-// Respond with cached resources
-self.addEventListener('fetch', function (e) {
-  e.respondWith(self.caches.match(e.request).then(function (request) {
-    if (request) return request
-    else return self.fetch(e.request)
-  }))
-})
+ // Respond with cached resources
+ self.addEventListener('fetch', function (e) {
+   e.respondWith(self.caches.match(e.request).then(function (request) {
+     if (request) return request
+     else return self.fetch(e.request)
+   }))
+ })
 
-// Register worker
-self.addEventListener('install', function (e) {
-  e.waitUntil(self.caches.open(VERSION).then(function (cache) {
-    return cache.addAll(URLS)
-  }))
-})
+ // Register worker
+ self.addEventListener('install', function (e) {
+   e.waitUntil(self.caches.open(VERSION).then(function (cache) {
+     return cache.addAll(URLS)
+   }))
+ })
 
-// Remove outdated resources
-self.addEventListener('activate', function (e) {
-  e.waitUntil(self.caches.keys().then(function (keyList) {
-    return Promise.all(keyList.map(function (key, i) {
-      if (keyList[i] !== VERSION) return self.caches.delete(keyList[i])
-    }))
-  }))
-})
+ // Remove outdated resources
+ self.addEventListener('activate', function (e) {
+   e.waitUntil(self.caches.keys().then(function (keyList) {
+     return Promise.all(keyList.map(function (key, i) {
+       if (keyList[i] !== VERSION) return self.caches.delete(keyList[i])
+     }))
+   }))
+ })
+
+/** NOTES TO SELF:
+ * on form submit use sw to cache the last date entered and last weight
+ * (or maybe ALL last written values? )
+ * and use those most recent vals to prepopulate the form fields
+ */
