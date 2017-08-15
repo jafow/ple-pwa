@@ -16,3 +16,5 @@ app.route('/posted', require('./views/posted'))
 app.route('/history', require('./views/history'))
 
 module.exports = app
+if (!module.parent) app.mount('body')
+else module.exports = app
