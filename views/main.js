@@ -1,4 +1,5 @@
 var html = require('choo/html')
+var dateHelper = require('../lib/date-helper.js')
 
 var ranges = {
   weight: {
@@ -27,8 +28,9 @@ function view (state, emit) {
   var abRange = makeRange(ranges.abdomen.start, ranges.abdomen.end)
   var footRange = makeRange(ranges.foot.start, ranges.foot.end)
   var lastWeight = getLastWeight()
+  var defaultDate = dateHelper(new Date()) 
   return html`
-    <body>
+    <body class="avenir">
       <header>
         <nav>
         <ul class="nav-menu">
@@ -39,11 +41,11 @@ function view (state, emit) {
         </nav>
         <h3 class="f1 pa3-m pa4-ns">PLE Stats</h3>
       </header>
-      <section>
-        <form action="/posted" method="post">
+      <section class="ph3 pv0">
+        <form class="post-form" action="/posted" method="post">
           <p>
             <label for="date">Date</label>
-            <input type="date" id="date" name="date" placeholder="yyyy-mm-dd" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+            <input type="date" id="date" name="date" placeholder=${defaultDate} value=${defaultDate} pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
           </p>
           <p>
             <label>Weight</label>
@@ -67,21 +69,23 @@ function view (state, emit) {
               ${footRange.map(v => html`<option value=${v}>${v}</option>`)}
             </select>
           </p>
-          <fieldset>
+          <fieldset class="nb">
             <legend>Options</legend>
-            ${checkboxItems.map(item =>
-              html`
-              <div>
-                <input id=${item} type="checkbox" name="options" value=${item}/>
-                <label for=${item}>${item}</label>
-              </div>`)
-            }
+            <div>
+              ${checkboxItems.map(item =>
+                html`
+                <div class="fl w-50 pa1">
+                  <input id=${item} type="checkbox" name="options" value=${item}/>
+                  <label for=${item}>${item}</label>
+                </div>`)
+              }
+            </div>
           </fieldset>
           <div class="pa3">
             <label class="f6 b db mb2" for="notes">Notes</label>
             <textarea class="bl border-box hover-black w-100 measure pa2 br2 mb2" name="notes" id="notes" autocomplete></textarea>
           </div>
-          <input type="submit" value="Save" />
+          <input type="submit" class="input-reset pill cf fr f5 link br-pill ba ph4 pv3 mb2 dib purple" value="Save" />
         </form>
       </section>
     <script src="dist/bundle.js" type="application/javascript"></script>
