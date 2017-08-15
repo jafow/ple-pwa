@@ -1,7 +1,7 @@
 {
-  "name": "ple-choo",
-  "short_name": "ple-choo",
-  "description": "ple tracker",
+  "name": "PLE stats tracker",
+  "short_name": "ple-stats",
+  "description": "App for tracking and storing pertinent stats for PLE",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#e5e5e5",
@@ -9,6 +9,6 @@
   "icons": [{
     "src": "/assets/icon.png",
     "type": "image/png",
-    "sizes": "512x512"
+    "sizes": "124X124"
   }]
 }
