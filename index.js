@@ -8,6 +8,7 @@ const app = require('./app.js')
 const path = require('path')
 
 server.use(bodyParser.urlencoded({extended: true}))
+server.use(express.static('dist'))
 
 server.get('/', (req, res) => {
   res.send(app.toString('/', {}))
