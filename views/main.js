@@ -28,7 +28,7 @@ function view (state, emit) {
   var abRange = makeRange(ranges.abdomen.start, ranges.abdomen.end)
   var footRange = makeRange(ranges.foot.start, ranges.foot.end)
   var lastWeight = getLastWeight()
-  var defaultDate = dateHelper(new Date()) 
+  var defaultDate = dateHelper(new Date())
   return html`
     <body class="avenir">
       <header>
@@ -99,14 +99,14 @@ function makeRange (start, end) {
   var tens = split[0]
   var decimal = split[1] || 0
 
-  while (tens + (decimal/100) < end) {
+  while (tens + (decimal / 100) < end) {
     if (decimal + 25 >= 100) {
       decimal = 0
       tens++
     } else {
-      decimal+=25
+      decimal += 25
     }
-    res.push(tens + (decimal/100))
+    res.push(tens + (decimal / 100))
   }
   return res
 }

@@ -1,4 +1,4 @@
-// /* global self */
+/* global self */
 
  var VERSION = String(Date.now())
  var URLS = [

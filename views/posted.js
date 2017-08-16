@@ -12,7 +12,7 @@ function posted (state, emit) {
           </div>`
     : ''
 
-  var notes = state.parsed.notes 
+  var notes = state.parsed.notes
     ? html`<div>
             <h4> Notes: </h4>
             <p>${state.parsed.notes}</p>
@@ -35,8 +35,8 @@ function posted (state, emit) {
             <li>Foot Size: ${foot}</li>
           </ul>
         </div>
-        ${ opts }
-        ${ notes }
+        ${opts}
+        ${notes}
       </section>
     </body>
   `

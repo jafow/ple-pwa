@@ -18,13 +18,13 @@ server.get('/dist/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/bundle.js'))
 })
 
-server.post('/posted', dbCtrl.run, stateCtrl.format, (req,  res) => {
+server.post('/posted', dbCtrl.run, stateCtrl.format, (req, res) => {
   res.send(app.toString('/posted', { parsed: req.body.parsedState }))
 })
 
 server.get('/history', dbCtrl.get, stateCtrl.hist, (req, res) => {
   let { success, mappedHistory } = req.body
-  res.send(app.toString('/history', { success:success, history: mappedHistory }))
+  res.send(app.toString('/history', {success: success, history: mappedHistory}))
 })
 
 server.listen(3000)

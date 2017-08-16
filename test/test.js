@@ -17,18 +17,18 @@ test('Test #format method', function (t) {
       date: d,
       weight: '30.4',
       abdomen: '50.2',
-      foot: '15.4',
+      foot: '15.4'
     }
   }
 
-  var req2= {
+  var req2 = {
     body: {
       date: d,
       options: 'opt1/'
     }
   }
 
-  var req3= {
+  var req3 = {
     body: {
       date: d,
       arm: '16.6',
