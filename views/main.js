@@ -32,6 +32,7 @@ function view (state, emit) {
   return html`
     <body class="avenir">
       <header>
+        <img class="cf fr w-30 pa1" src="assets/icon_96x96.png" />
         <nav>
         <ul class="nav-menu">
           <li><a href="/update">Edit</a></li>
@@ -88,7 +89,6 @@ function view (state, emit) {
           <input type="submit" class="input-reset pill cf fr f5 link br-pill ba ph4 pv3 mb2 dib purple" value="Save" />
         </form>
       </section>
-    <script src="dist/bundle.js" type="application/javascript"></script>
     </body>
   `
 }
