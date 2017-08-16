@@ -31,9 +31,3 @@
      }))
    }))
  })
-
-/** NOTES TO SELF:
- * on form submit use sw to cache the last date entered and last weight
- * (or maybe ALL last written values? )
- * and use those most recent vals to prepopulate the form fields
- */
