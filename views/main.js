@@ -32,7 +32,7 @@ function view (state, emit) {
   return html`
     <body class="avenir">
       <header>
-        <img class="cf fr w-30 pa1" src="assets/icon_96x96.png" />
+        <img class="cf fr w-30 pa1" src="assets/icon_124x124.png" />
         <nav>
         <ul class="nav-menu">
           <li><a href="/update">Edit</a></li>
