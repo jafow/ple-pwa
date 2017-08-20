@@ -1,9 +1,9 @@
 {
-  "name": "ple-choo",
+  "name": "ple-pwa",
   "version": "0.0.1",
   "scripts": {
     "build": "browserify app.js -t sheetify > dist/bundle.js",
-    "start": "node --harmony index.js",
+    "start": "npm run build && node --harmony index.js",
     "test": "standard && node test/test.js | tap-spec"
   },
   "dependencies": {
@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "browserify": "^14.4.0",
-    "bankai": "^9.0.0-1",
     "standard": "^10.0.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
