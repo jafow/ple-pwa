@@ -30,17 +30,17 @@ function view (state, emit) {
   var lastWeight = getLastWeight()
   var defaultDate = dateHelper(new Date())
   return html`
-    <body class="avenir">
-      <header>
-        <img class="cf fr w-30 pa1" src="assets/icon_124x124.png" />
-        <nav>
-        <ul class="nav-menu">
+    <body class="avenir black bg-near-white">
+      <header class="w-100 bg-light-green h3 shadow-4">
+        <h3 class="f3 pa3-m pa4-ns mh6 mt0 cf fr">PLE Stats</h3>
+        <nav class="pa3">
+        <a href="#" class="cf fl ml1 mt2 nav-hamburger"><span></span></a>
+        <ul class="mv0 hide">
           <li><a href="/update">Edit</a></li>
           <li><a href="/delete">Delete</a></li>
           <li><a href="/history">History</a></li>
         </ul> 
         </nav>
-        <h3 class="f1 pa3-m pa4-ns">PLE Stats</h3>
       </header>
       <section class="ph3 pv0">
         <form class="post-form" action="/posted" method="post">
@@ -90,7 +90,7 @@ function view (state, emit) {
             <label class="f6 b db mb2" for="notes">Notes</label>
             <textarea class="bl border-box hover-black w-100 measure pa2 br2 mb2" name="notes" id="notes" autocomplete></textarea>
           </div>
-          <input type="submit" class="input-reset pill cf fr f5 link br-pill ba ph4 pv3 mb2 dib purple" value="Save" />
+          <input type="submit" class="input-reset pill cf fr f5 link br-pill ba ph4 pv3 mb2 dib bg-light-green" value="Save" />
         </form>
       </section>
     </body>
