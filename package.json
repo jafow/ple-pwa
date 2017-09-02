@@ -4,7 +4,7 @@
   "scripts": {
     "build": "browserify app.js -t sheetify > dist/bundle.js",
     "start": "npm run build && node --harmony index.js",
-    "test": "standard && node test/test.js | tap-spec"
+    "test": "standard && node --harmony test/test.js | tap-spec"
   },
   "dependencies": {
     "body-parser": "^1.17.2",

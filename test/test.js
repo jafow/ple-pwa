@@ -1,6 +1,8 @@
 // testing state controller
 const test = require('tape')
 const stateCtrl = require('../lib/state-ctrl.js')
+const DbController = require('../lib/setup-db')
+const dbCtrl = DbController('../lib/v1.sql')
 const dateHelper = require('../lib/date-helper.js')
 
 test('Test state-ctrl module', function (t) {
@@ -10,7 +12,7 @@ test('Test state-ctrl module', function (t) {
   t.ok(stateCtrl.hist, 'exports a #hist method')
 })
 
-test('Test #format method', function (t) {
+test('Test stateCtrl#format method', function (t) {
   var d = dateHelper(new Date())
   var req1 = {
     body: {
@@ -58,7 +60,7 @@ test('Test #format method', function (t) {
   t.end()
 })
 
-test('Test #hist method', function (t) {
+test('Test stateCtrl#hist method', function (t) {
   var badReq = {body: {nope: 'still fails'}}
   var badRes = {send: function (str) { return str }}
   var hist = [
@@ -75,4 +77,11 @@ test('Test #hist method', function (t) {
 
   t.equal(stateCtrl.hist(badReq, badRes), '<h3>Bad request :-( please try again</h3>', 'sends 404 on bad req')
   t.end()
+})
+
+test('Test dbCtrl module', function (t) {
+  t.plan(3)
+  t.ok(dbCtrl)
+  t.ok(dbCtrl.run, 'exports a #run method')
+  t.ok(dbCtrl.get, 'exports a #get method')
 })
