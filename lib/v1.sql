@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS
         weight       REAL        default 0,
         arm          REAL        default 0,
         abdomen      REAL        default 0,
-        foot         REAL        default 0
+        foot         REAL        default 0,
+        poo          INTEGER     default 0
     );
 
        

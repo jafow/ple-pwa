@@ -3,7 +3,6 @@
  var VERSION = String(Date.now())
  var URLS = [
    '/',
-   'dist/bundle.css',
    'dist/bundle.js',
    'dist/assets/icon.png'
  ]

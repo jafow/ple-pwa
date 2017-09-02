@@ -3,7 +3,7 @@ var html = require('choo/html')
 module.exports = posted
 
 function posted (state, emit) {
-  var { date, weight, arm, abdomen, foot } = state.parsed
+  var { date, weight, arm, abdomen, foot, poo } = state.parsed
 
   var opts = state.parsed.options.length > 0
     ? html`<div>
@@ -33,6 +33,7 @@ function posted (state, emit) {
             <li>Arm Size: ${arm}</li>
             <li>Abdomen Size: ${abdomen}</li>
             <li>Foot Size: ${foot}</li>
+            <li>Poo: ${poo}</li>
           </ul>
         </div>
         ${opts}

@@ -8,12 +8,13 @@ function history (state, emit) {
       ${entry.date}
       <ul>
         <li>Weight: ${entry.weight}</li>
-        <li>Arm ${entry.arm}</li>
-        <li>Abdomen${entry.abdomen}</li>
-        <li>Foot ${entry.foot}</li>
-      <ul>
+        <li>Arm: ${entry.arm}</li>
+        <li>Abdomen: ${entry.abdomen}</li>
+        <li>Foot: ${entry.foot}</li>
+        <li>Poo: ${entry.poo}</li>
+      </ul>
       <p>Notes: ${entry.notes}</p>
-      <p>${entry.options ? 'other: ' + entry.options.join(',') : ''}</p>
+      <p>${entry.options ? 'Other: ' + entry.options.join(',') : ''}</p>
     </div>`)
 
   return html`

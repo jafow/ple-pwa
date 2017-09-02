@@ -70,6 +70,10 @@ function view (state, emit) {
               ${footRange.map(v => html`<option value=${v}>${v}</option>`)}
             </select>
           </p>
+          <p>
+            <label>Poo</label>
+            <input type="number" name="poo" step="1" value="1" />
+          </p>
           <fieldset class="nb">
             <legend>Options</legend>
             <div>
