@@ -21,11 +21,19 @@ function posted (state, emit) {
 
   return html`
     <body>
-      <h1>This has been saved:</h1>
-      <a href="/">Home</a>
-      <a href="/update">Update</a>
-      <a href="/history">History</a>
+      <header class="w-100 bg-light-green h3 shadow-4">
+        <h3 class="f3 pa3-m pa4-ns mh6 mt0 cf fr">PLE Stats</h3>
+        <nav class="pa3">
+          <a href="#" class="cf fl ml1 mt2 nav-hamburger"><span></span></a>
+          <ul class="mv0 hide">
+            <li><a href="/update">Edit</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/history">History</a></li>
+          </ul>
+        </nav>
+      </header>
       <section>
+        <h1>This has been saved:</h1>
         <div>
           <ul>
             <li>Date: ${date}</li>

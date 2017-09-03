@@ -18,17 +18,26 @@ function history (state, emit) {
     </div>`)
 
   return html`
-  <body>
-    <h1>History</h1>
-    <a href="/">Home</a>
-    <a href="/update">Update</a>
-    <a href="/history">History</a>
-    <section>
-      <h2>${state.success} hello </h2>
-    <div>
-      ${entries}
-    </div>
-    </section>
-  </body>
+    <header class="w-100 bg-light-green h3">
+      <h3 class="f3 pa3-m pa4-ns mh6 mt0 cf fr">PLE Stats</h3>
+      <nav>
+      <ul class="mv0">
+        <li><a href="/update">Edit</a></li>
+        <li><a href="/delete">Delete</a></li>
+        <li><a href="/history">History</a></li>
+      </ul>
+      </nav>
+    </header>
+    <body>
+      <h1>History</h1>
+      <a href="/">Home</a>
+      <a href="/update">Update</a>
+      <a href="/history">History</a>
+      <section>
+      <div>
+        ${entries}
+      </div>
+      </section>
+    </body>
   `
 }
