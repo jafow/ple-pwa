@@ -72,7 +72,7 @@ test('Test stateCtrl#hist method', function (t) {
   var req = {body: {history: hist}}
 
   stateCtrl.hist(req, {}, function () {
-    t.notOk(req.body.mappedHistory[0].opt1, 'does not set null options')
+    t.notOk(req.body.history[0].opt1, 'does not set null options')
   })
 
   t.equal(stateCtrl.hist(badReq, badRes), '<h3>Bad request :-( please try again</h3>', 'sends 404 on bad req')
