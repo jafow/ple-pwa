@@ -14,6 +14,7 @@ const sign = config.cookieSign
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(cookieParser(sign))
+server.disable('x-powered-by')
 server.get('/', (req, res) => {
   if (req.signedCookies.validUser === validUser) {
     res.sendFile(path.join(__dirname, '/dist/index.html'))
