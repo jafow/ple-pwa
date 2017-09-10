@@ -35,7 +35,7 @@ server.get(/\/?dist\/\w?/, (req, res) => {
 
 server.post('/login', auth, (req, res) => {
   if (req.body.validUser === validUser) {
-    res.redirect('dist/index.html')
+    res.redirect('/')
   } else {
     res.send('failed login post')
   }
