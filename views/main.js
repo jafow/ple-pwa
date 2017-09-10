@@ -7,7 +7,7 @@ var ranges = {
     end: 36.6
   },
   arm: {
-    start: 16.25,
+    start: 16.0,
     end: 19.0
   },
   abdomen: {
@@ -15,7 +15,7 @@ var ranges = {
     end: 54.0
   },
   foot: {
-    start: 14.5,
+    start: 14.0,
     end: 16.5
   }
 }
@@ -24,7 +24,7 @@ var checkboxItems = ['rutin', 'rapamune', 'sildenafil', 'vomit', 'grumpy', 'rash
 module.exports = view
 
 function view (state, emit) {
-  var armRange = makeRange(ranges.arm.start, ranges.arm.end)
+  var armRange = makeRange(ranges.arm.start, ranges.arm.end, 25)
   var abRange = makeRange(ranges.abdomen.start, ranges.abdomen.end)
   var footRange = makeRange(ranges.foot.start, ranges.foot.end)
   var lastWeight = getLastWeight()
@@ -34,7 +34,7 @@ function view (state, emit) {
       <header class="w-100 bg-light-green h3 shadow-4">
         <h3 class="f3 w-60 ma0 mt3 cf fr">PLE Stats</h3>
         <nav class="pa3">
-        <a href="#" class="cf fl mt2"><span></span></a>
+        <a href="#" class="cf fl mt2 ml1 nav-hamburger"><span></span></a>
         <ul class="mv0 hide">
           <li><a href="/update">Edit</a></li>
           <li><a href="/delete">Delete</a></li>
@@ -97,20 +97,19 @@ function view (state, emit) {
   `
 }
 
-function makeRange (start, end) {
+function makeRange (start, end, step = 50) {
   var res = []
   var split = start.toFixed(2).split('.').map(v => Number(v))
   var tens = split[0]
   var decimal = split[1] || 0
 
-  while (tens + (decimal / 100) < end) {
-    if (decimal + 25 >= 100) {
+  while (tens + (decimal / 100) <= end) {
+    res.push(tens + (decimal / 100))
+    if (decimal + step === 100) {
       decimal = 0
       tens++
-    } else {
-      decimal += 25
     }
-    res.push(tens + (decimal / 100))
+    decimal += step
   }
   return res
 }
