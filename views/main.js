@@ -32,9 +32,9 @@ function view (state, emit) {
   return html`
     <body class="avenir black bg-near-white">
       <header class="w-100 bg-light-green h3 shadow-4">
-        <h3 class="f3 pa3-m pa4-ns mh6 mt0 cf fr">PLE Stats</h3>
+        <h3 class="f3 w-60 ma0 mt3 cf fr">PLE Stats</h3>
         <nav class="pa3">
-        <a href="#" class="cf fl ml1 mt2 nav-hamburger"><span></span></a>
+        <a href="#" class="cf fl mt2"><span></span></a>
         <ul class="mv0 hide">
           <li><a href="/update">Edit</a></li>
           <li><a href="/delete">Delete</a></li>
