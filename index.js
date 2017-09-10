@@ -11,6 +11,7 @@ const app = require('./app.js')
 const path = require('path')
 const validUser = config.validUser
 const sign = config.cookieSign
+const PORT = process.env.PORT || 8180
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(cookieParser(sign))
@@ -58,4 +59,4 @@ server.get('/history', dbCtrl.get, stateCtrl.hist, (req, res) => {
   res.send(app.toString('/history', {history}))
 })
 
-server.listen(3000)
+server.listen(PORT)
