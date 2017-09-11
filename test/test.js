@@ -4,6 +4,7 @@ const stateCtrl = require('../lib/state-ctrl.js')
 const DbController = require('../lib/setup-db')
 const dbCtrl = DbController('../lib/v1.sql')
 const dateHelper = require('../lib/date-helper.js')
+const makeRange = require('../lib/make-range.js')
 
 test('Test state-ctrl module', function (t) {
   t.plan(3)
@@ -84,4 +85,10 @@ test('Test dbCtrl module', function (t) {
   t.ok(dbCtrl)
   t.ok(dbCtrl.run, 'exports a #run method')
   t.ok(dbCtrl.get, 'exports a #get method')
+})
+
+test('Test makeRange fn', function (t) {
+  t.plan(2)
+  t.deepEqual(makeRange(16.0, 17.25, 25), [16.0, 16.25, 16.50, 16.75, 17.0, 17.25], 'make range with 25 step')
+  t.deepEqual(makeRange(49, 51.5, 50), [49.0, 49.5, 50.0, 50.5, 51.0, 51.5], 'make range with 50 step')
 })
