@@ -26,8 +26,6 @@ function posted (state, emit) {
         <nav class="pa3">
           <a href="#" class="cf fl ml1 mt2 nav-hamburger"><span></span></a>
           <ul class="mv0 hide">
-            <li><a href="/update">Edit</a></li>
-            <li><a href="/delete">Delete</a></li>
             <li><a href="/history">History</a></li>
           </ul>
         </nav>
