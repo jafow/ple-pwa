@@ -50,7 +50,6 @@ server.get('/login', (req, res) => {
 })
 
 server.post('/posted', dbCtrl.run, stateCtrl.format, (req, res) => {
-  res.sendFile(path.join(__dirname, '/dist/index.html'))
   res.send(app.toString('/posted', {parsed: req.body.parsedState}))
 })
 
