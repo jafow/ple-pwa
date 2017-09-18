@@ -55,7 +55,7 @@ server.post('/posted', dbCtrl.run, stateCtrl.format, (req, res) => {
   fs.readFile(path.join(__dirname, 'dist/index.html'), (err, html) => {
     if (err) throw new Error(err)
     // read the index.html and concat app to it to send
-    res.send(html + app.toString('/posted', {parsed: req.body.parsedState}))
+    res.send(html + app.toString('/posted', {parsed: req.body.parsedState, navOpen: false}))
   })
 })
 
