@@ -30,10 +30,6 @@ function view (state, emit) {
   var footRange = makeRange(ranges.foot.start, ranges.foot.end)
   var lastWeight = getLastWeight()
   var defaultDate = dateHelper(new Date())
-  function submit () {
-    state.bar = 'baz'
-    emit('pushState', '/posted', {foo: 'bar'})
-  }
   return html`
     <body class="avenir black bg-near-white">
       <header class="w-100 bg-dark-green h3 shadow-4">
@@ -95,7 +91,7 @@ function view (state, emit) {
             <label class="ph3"class="f6 b db mb2" for="notes">Notes</label>
             <textarea class="bl border-box hover-black w-100 measure pa2 br2 mb2" name="notes" id="notes" autocomplete></textarea>
           </div>
-          <input onclick=${submit()} type="submit" class="input-reset pill cf fr f5 link br-pill ba ph4 pv3 mb2 dib bg-dark-green" value="Save" />
+          <input type="submit" class="input-reset pill cf fr f5 link br-pill ba ph4 pv3 mb2 dib bg-dark-green white" value="Save" />
         </form>
       </section>
     </body>
