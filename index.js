@@ -9,12 +9,14 @@ const stateCtrl = require('./lib/state-ctrl')
 const auth = require('./lib/auth')
 const app = require('./app.js')
 const path = require('path')
+const fs = require('fs')
 const validUser = config.validUser
 const sign = config.cookieSign
 const PORT = process.env.PORT || 8180
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(cookieParser(sign))
+server.use(express.static('/dist', {maxAge: 0}))
 server.disable('x-powered-by')
 server.get('/', (req, res) => {
   if (req.signedCookies.validUser === validUser) {
@@ -50,8 +52,11 @@ server.get('/login', (req, res) => {
 })
 
 server.post('/posted', dbCtrl.run, stateCtrl.format, (req, res) => {
-  res.sendFile(path.join(__dirname, '/dist/index.html'))
-  res.send(app.toString('/posted', {parsed: req.body.parsedState}))
+  fs.readFile(path.join(__dirname, 'dist/index.html'), (err, html) => {
+    if (err) throw new Error(err)
+    // read the index.html and concat app to it to send
+    res.send(html + app.toString('/posted', {parsed: req.body.parsedState, navOpen: false}))
+  })
 })
 
 server.get('/history', dbCtrl.get, stateCtrl.hist, (req, res) => {
