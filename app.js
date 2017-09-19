@@ -4,7 +4,7 @@ const choo = require('choo')
 css('tachyons')
 css('./assets/styles/header-bkground.css')
 
-const app = choo()
+const app = choo({href: false})
 if (process.env.NODE_ENV !== 'production') {
   app.use(require('choo-devtools')())
   app.use(require('choo-log')())
@@ -18,7 +18,6 @@ app.route('/history', require('./views/history'))
 app.use(function toggleNav (state, emitter) {
   state.navOpen = false;
   emitter.on('toggleNav', function (navState) {
-    console.log('toggled ', navState)
     state.navOpen = navState
   })
 })

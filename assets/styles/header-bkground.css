@@ -19,3 +19,25 @@
 .hide {
     display: none;
 }
+#list.hide {
+    width: 0;
+    background: #FFF;
+}
+#list.expand {
+    position: absolute;
+    left: 0;
+    display: block;
+    line-height: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    background: lightgrey;
+    transition: width background 680ms ease-in;
+}
+#list > li {
+    border-bottom: 1px solid purple;
+}
+#list > li:hover {
+    background: darkgray;
+}
+

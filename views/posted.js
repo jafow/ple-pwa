@@ -27,8 +27,24 @@ function posted (state, emit) {
         <h3 class="f3 w-60 ma0 mt3 cf fr white">PLE Stats</h3>
         <nav class="pa3">
             <div class="cf fl mt2 ml1 nav-hamburger"><span></span></div>
+            <ul id="list" class="list ph0 hide">
+              <li><a href="/">Home</a></li>
+              <li><a href="/history">History</a></li>
+            </ul>
         </nav>
       </header>
+      <script>
+        document.getElementsByTagName('nav')[0].addEventListener('click', function (e) {
+          var list = document.getElementById('list')
+          var oldClass = list.getAttribute('class')
+          // toggle class
+          if (/expand/.test(oldClass)) {
+            list.setAttribute('class', oldClass.replace('expand', 'hide'))
+          } else {
+            list.setAttribute('class', oldClass.replace('hide', 'expand'))
+          }
+        })
+      </script>
       <section>
         <h1>This has been saved:</h1>
         <div>
@@ -45,10 +61,6 @@ function posted (state, emit) {
         ${notes}
       </section>
       <div>
-        <ul id="list" class="list ph2"
-          <li><a href="/">Home</a></li>
-          <li><a href="/history">History</a></li>
-        </ul>
       </div>
     </body>
   `
