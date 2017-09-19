@@ -20,28 +20,13 @@ function posted (state, emit) {
           </div>`
     : ''
 
-  function toggleNav () {
-    if (state.navOpen) {
-      state.navOpen = !state.navOpen
-      // collapse nav
-    } else {
-      console.log('butt')
-      var list = document.getElementById('list')
-      list.removeAttribute('class')
-      list.setAttribute('class', 'mv0')
-      state.navOpen = true;
-    }
-  }
+
   return html`
     <body>
       <header class="w-100 bg-dark-green h3 shadow-4">
         <h3 class="f3 w-60 ma0 mt3 cf fr white">PLE Stats</h3>
-        <nav onclick=${toggleNav} class="pa3">
-          <div class="cf fl mt2 ml1 nav-hamburger"><span></span></div>
-          <ul id="list" class="mv0 hide">
-            <li><a href="/">Home</a></li>
-            <li><a href="/history">History</a></li>
-          </ul>
+        <nav class="pa3">
+            <div class="cf fl mt2 ml1 nav-hamburger"><span></span></div>
         </nav>
       </header>
       <section>
@@ -59,6 +44,12 @@ function posted (state, emit) {
         ${opts}
         ${notes}
       </section>
+      <div>
+        <ul id="list" class="list ph2"
+          <li><a href="/">Home</a></li>
+          <li><a href="/history">History</a></li>
+        </ul>
+      </div>
     </body>
   `
 }
